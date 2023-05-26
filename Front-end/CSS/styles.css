@@ -1,0 +1,286 @@
+body {
+    background-color: rgb(255, 255, 255);
+    margin: 1.5em;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* rem = relative em, it's preferably used for font sizes*/
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+div.card {
+    display: grid;
+    justify-items: center;
+    box-sizing: content-box;
+    width: 10em;
+    
+    margin-bottom: 10em;
+    background-color: #9b6868;
+    width: 20em;
+    
+}
+
+style="width: 18rem;"
+
+div.item {
+    width: 200px;
+    height: 400px;
+    margin: 50px auto;
+    padding-top: 75px;
+    background: #ccc;
+    text-align: center;
+    color: #fff;
+
+}
+
+.logo {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    width: max-content;
+    margin: .7em 0em .7em;
+}
+
+.logo span {
+    color: red;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#loader {
+    position: fixed;
+    background: #141129 url(/images/loadernobg.gif) no-repeat center;
+    width: 100;
+    height: 100vh;
+    z-index: 1;
+}
+
+div.remove-loader{
+    translate: 0 -500px;
+    transition: 2s;
+}
+
+div.container{
+    margin: 0 50px;
+}
+
+button:hover{
+    cursor: pointer;
+} 
+
+button.connectWalletBtn{
+    background-color: white;
+    color: red;
+    border-radius: .75em;
+    border: .2em  solid black;
+}
+
+button.connectWalletBtn:hover {
+    background-color: wheat;
+    transition: background-colour 0.5s ease-in
+} 
+
+    
+section.hero {
+    display: flex;
+    justify-content: center;
+    color: wheat;
+    height: 85vh;
+    animation: moveDown 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+div.more-info img {
+    width: 100%;
+    object-fit: cover;
+    height: 15em;
+}
+
+p.title {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+div.h1{
+    margin: auto;
+    text-align: center;
+}
+
+
+div.feature {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 5em;
+    margin-bottom: 8em;
+}
+
+.vote-img{
+    width: 600px;
+    border-radius: 30px;
+}
+
+
+div.form{
+    display: flex;
+    justify-content: center;
+}
+
+#resources{
+    border: none;
+    padding: 5px;
+    background-color: #4b418a;
+    color: #ffffff;
+}
+
+div.form- input {
+    border: none;
+    padding: 5px;
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #8dccc1;
+}
+
+div.form- input:hover{
+    color: #fff;
+    background-color: #8dccc1;
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+
+.footer{
+    background-color: #141129;
+    width: 100;
+    height: 50px;
+    color: #fff;
+    display: flex;
+}
+
+.footer p {
+    margin: auto;
+    font-size: 70;
+}
+
+.notify-container {
+    width: 100;
+    display: flex;
+    color: #fff;
+}
+
+.notify{
+    position: relative;
+    left: -30px;
+    background-color: #141129;
+    padding: 5px;
+    height: 30px;
+    margin-top: -69px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 60;
+    display: none;
+}
+
+div.content{
+    margin: auto;
+}
+
+.success {
+    display: flex;
+    background-color: green;
+}
+
+.failed {
+    display: flex;
+    background-color: red;
+}
+
+div.proposals-container{
+    width: 100%;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+#proposals {
+    margin: auto;
+    color: #6f64b9;
+    text-shadow: 1px 4px 5px #141129;
+    font-weight: bold;
+}
+
+button.check-result {
+    display: flex;
+    justify-content: right;
+}
+
+
+/* This is desktop screen size so, the menu bar should hide at this point */
+@media only screen and (min-width: 920px) {
+    .logo {
+        color: black;
+    }
+
+    .logo span {
+        color: red;
+    }
+    
+    section.hero {
+        color: black;
+        height: auto;
+        margin-bottom: 18em;
+    }
+
+    div.feature {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 5em;
+        margin-bottom: 8em;
+    }
+
+    div.feature img {
+        width: 10em;
+    }
+
+    p.item .content {
+        text-align: right;
+        width: 25em;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .wrapper {
+        width: 1110px;
+        margin: 0 auto;
+    }
+
+    .feature {
+        gap: 0;
+    }
+}
+
+
+@keyframes introLoad {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+
+@keyframes moveDown {
+    from {
+        transform: translateY(-100px);
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

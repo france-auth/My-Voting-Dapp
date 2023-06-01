@@ -1,7 +1,9 @@
 body {
     background-color: rgb(255, 255, 255);
-    margin: 1.5em;
+    margin: 0em 0em;
     font-family: 'Poppins', sans-serif;
+    display: flex(3, 0);
+    justify-items: center;
 }
 
 /* rem = relative em, it's preferably used for font sizes*/
@@ -13,27 +15,55 @@ a {
 div.card {
     display: grid;
     justify-items: center;
-    box-sizing: content-box;
-    width: 10em;
-    
+    /*grid-template-columns: repeat(3, 300px);*/
+    grid-gap: 3em;
+    align-content: center;
+    border-radius: 2em;
     margin-bottom: 10em;
-    background-color: #9b6868;
-    width: 20em;
-    
+    background-color: rgb(255, 255, 255);
+    box-shadow: #000 0px 5px 25px;
+    width: 50em;
+    height: 35em;
+    box-shadow: #201a4b;
 }
 
-style="width: 18rem;"
 
-div.item {
-    width: 200px;
-    height: 400px;
-    margin: 50px auto;
-    padding-top: 75px;
-    background: #ccc;
-    text-align: center;
-    color: #fff;
+div.card-img {
+    display: grid;
+    justify-self: center;
+    padding-top: 2em;
+    width: 100%;
+    border-radius: 12px;
+    object-fit: contain;
+    border: 1px solid #bacdd8;
+}
+
+div.card-details {
+    display: grid;
+    justify-items: center;
+    padding: 1em 1em 1em 1em;
+}
+
+div.card-body {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    font-family: 'Poppins', sans-serif;
 
 }
+
+div.btn {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #0077ff;
+    background-color: ;
+}
+
 
 .logo {
     background-color: white;
@@ -50,6 +80,9 @@ div.item {
 header {
     display: flex;
     justify-content: space-between;
+    background-color: #201a4b;
+    color: #fff;
+    padding: 15px 37.5px;
 }
 
 
@@ -66,8 +99,10 @@ div.remove-loader{
     transition: 2s;
 }
 
-div.container{
-    margin: 0 50px;
+#container {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 20vh;
 }
 
 button:hover{
@@ -105,6 +140,11 @@ div.more-info img {
 p.title {
     font-weight: bold;
     font-size: 1.25rem;
+}
+
+div.lead {
+    text-align: center;
+    margin: auto;
 }
 
 div.h1{
@@ -234,16 +274,13 @@ button.check-result {
         margin-bottom: 18em;
     }
 
-    div.feature {
+    div.card {
         display: grid;
         grid-template-columns: repeat(2, auto);
         gap: 5em;
         margin-bottom: 8em;
     }
 
-    div.feature img {
-        width: 10em;
-    }
 
     p.item .content {
         text-align: right;
@@ -252,15 +289,8 @@ button.check-result {
 }
 
 @media only screen and (min-width: 1100px) {
-    .wrapper {
-        width: 1110px;
-        margin: 0 auto;
-    }
 
-    .feature {
-        gap: 0;
     }
-}
 
 
 @keyframes introLoad {

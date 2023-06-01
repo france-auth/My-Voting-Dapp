@@ -1,4 +1,16 @@
-/* const ethers = require("ethers");
+
+const { ethers } = require("ethers");
+
+function createBytes(args) {
+    const name = args[0];
+    const bytes = ethers.utils.formatBytes32String(name);
+    console.log("name: ", bytes);
+}
+
+createBytes(process.argv.slice(2));
+
+/*
+const ethers = require("ethers");
 
 async function createBytes(args) {
     const name = args[0];
@@ -7,10 +19,11 @@ async function createBytes(args) {
 }
 
 createBytes(process.argv.slice(2));
+
+
 */
 
-
-const {ethers} = require("ethers");
+/* const {ethers} = require("ethers");
 
 
 function createBytes(args) {
@@ -20,3 +33,4 @@ function createBytes(args) {
 }
 
 createBytes(process.argv.slice(2));
+*/

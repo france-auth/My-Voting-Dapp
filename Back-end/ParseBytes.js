@@ -1,4 +1,4 @@
-const ethers = require("ethers");
+/*const ethers = require("ethers");
 
 async function parseBytes(args) {
     const name = args[0];
@@ -7,3 +7,4 @@ async function parseBytes(args) {
 }
 
 parseBytes(process.argv.slice(2));
+*/

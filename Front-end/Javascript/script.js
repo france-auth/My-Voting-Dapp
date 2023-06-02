@@ -31,7 +31,7 @@ import { decentraVoteABI } from "../Javascript/decentraVoteABI.js";
     result.addEventListener ('click', async () => {
         const name = await winning()
         notify_background.classList.add('success');
-        notify.textContent = Winning proposal is: ${name}
+        notify.textContent = `Winning proposal is: ${name}`
     })
     
     const connect_metamask = async () => {

@@ -1,0 +1,22 @@
+@media (max-width: 1063px) {
+    .cards{
+        grid-template-columns: 300px 300px;
+    }
+}
+
+@media (max-width: 706px){
+    .cards{
+        grid-template-columns: 300px;
+    }
+
+    .lead{
+        font-size: 120%;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .lead {
+        text-align: left;
+    }
+}

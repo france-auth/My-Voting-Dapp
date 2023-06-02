@@ -1,9 +1,9 @@
 import { ethers } from "./ethersJS/ethers-5.1.esm.min.js"; 
-import { decentraVoteABI } from "../Javascript/decentraVoteABI.js"
+import { decentraVoteABI } from "../Javascript/decentraVoteABI.js";
 
 
     const voters_form = document.querySelector('#v-form');
-    const wallet_btn = document.querySelector("connectWalletBtn");
+    const wallet_btn = document.querySelector('connectWalletBtn');
     const notify = document.querySelector('.content');
     const notify_background = document.querySelector('.notify');
 

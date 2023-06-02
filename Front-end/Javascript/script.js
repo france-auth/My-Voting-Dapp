@@ -1,4 +1,4 @@
-import { ethers } from "./ethersJS/ethers-5.1.esm.min.js"; 
+import { ethers } from "./ethersJs/ethers-5.1.esm.min.js"; 
 import { decentraVoteABI } from "../Javascript/decentraVoteABI.js";
 
 

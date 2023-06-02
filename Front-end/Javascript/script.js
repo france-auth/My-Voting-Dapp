@@ -3,13 +3,13 @@ import { decentraVoteABI } from "../Javascript/decentraVoteABI.js"
 
 
     const voters_form = document.querySelector('#v-form');
-    const wallet_btn = document.querySelector("connectWalletBtn")
+    const wallet_btn = document.querySelector("connectWalletBtn");
     const notify = document.querySelector('.content');
     const notify_background = document.querySelector('.notify');
 
     let loader = document.getElementById('loader');
     const result = document.querySelector('.check-result');
-    const contractAddress = '0x90db67E14985c7f17cb7dC474c441534F95Ec653';
+    const contractAddress = '0xD16a279E2F1aA4C1B0D57fe9Ffab8269e36Ef951';
     const connected = false;
 
 

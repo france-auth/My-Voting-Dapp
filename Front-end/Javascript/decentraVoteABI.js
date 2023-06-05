@@ -1,4 +1,4 @@
-export const decentraVoteABI = [
+const decentraVoteABI = [
 	{
 		"inputs": [
 			{
@@ -128,4 +128,6 @@ export const decentraVoteABI = [
 		"stateMutability": "view",
 		"type": "function"
 	}
-]
+];
+
+export default decentraVoteABI;

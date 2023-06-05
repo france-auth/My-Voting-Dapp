@@ -26,7 +26,7 @@ a {
 
 section{
     width: 100%;
-    padding: 5rem 0;
+    padding: 3rem 0;
 }
 section .container{
     width: 90%;
@@ -264,10 +264,6 @@ h2.proposals {
     margin-top: 3em;
 }
 
-button.checkResult {
-    display: flex;
-    justify-content: right;
-}
 
 
 /* This is desktop screen size so, the menu bar should hide at this point */

@@ -1,5 +1,5 @@
-import { ethers } from "./ethersJs/ethers-5.1.esm.min.js"; 
-import { decentraVoteABI } from "../Javascript/decentraVoteABI.js";
+import { ethers } from "ethers"; 
+import decentraVoteABI from "../Javascript/decentraVoteABI"
 
 
     const voters_form = document.querySelector('#v-form');
@@ -11,11 +11,7 @@ import { decentraVoteABI } from "../Javascript/decentraVoteABI.js";
     const result = document.querySelector('.check-result');
     const contractAddress = '0xD16a279E2F1aA4C1B0D57fe9Ffab8269e36Ef951';
     const connected = false;
-
-
-    window.addEventListener('load', () => {
-        loader.classList.add('remove-loader')
-    })
+    
     
     wallet_btn.addEventListener('click', async () => {
         let {truncatedAddr} = await connect_metamask()
@@ -40,11 +36,11 @@ import { decentraVoteABI } from "../Javascript/decentraVoteABI.js";
             await provider.send("eth_requestAccounts", []);
             const signer = await provider.getSigner();
             const chainID = await signer.getChainId();
-            if( chainID !== 80001 ){
+            if( chainID !=="0x13881"){
                 try{
-                    await provider.send("wallet_switchEthereumChain", [{ chainId: 0x13881 },]);
-                } catch (err) {
-                    console.log("Error requesting account switch: ", err)
+                    await provider.send("wallet_switchEthereumChain", [{ chainId: `0x13881` }, ]);
+                } catch (error) {
+                    console.error("Error requesting account switch:", error)
                     return;
                 }
             }
@@ -54,8 +50,8 @@ import { decentraVoteABI } from "../Javascript/decentraVoteABI.js";
             const truncatedAddr = address.slice(0, 4) + "..." + address.slice(-3)
             return {truncatedAddr, signer, address}
         
-        } catch (err) {
-            console.log('Error connecting to metamask: ', err)
+        } catch (error) {
+            console.log("Error connecting to metamask: ", error);
         }
     }
 
@@ -83,9 +79,9 @@ import { decentraVoteABI } from "../Javascript/decentraVoteABI.js";
             console.log("Vote submitted successfully!");
             console.log(notify.textContent)
             updateNotifyUI("Vote Successful", "success")
-        } catch (err) {
-            updateNotifyUI(err.data.message, "failed")
-            console.log("Failed, reason: ", err.message);
+        } catch (error) {
+            updateNotifyUI(error.data.message, "failed")
+            console.log("Failed, reason: ", error.data.message);
         }
     }
 
@@ -102,8 +98,8 @@ import { decentraVoteABI } from "../Javascript/decentraVoteABI.js";
             let winner =  ethers.utils.parseBytes32String(name);
             return winner;
             
-            // } catch (err){ 
-                //     console.log(err.data.message)
+            // } catch (error){ 
+                //     console.log(error.data.message)
                 // }
             }
 

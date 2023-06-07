@@ -1,17 +1,143 @@
-import { ethers } from "ethers"; 
-import decentraVoteABI from "../Javascript/decentraVoteABI"
-
-
-    const voters_form = document.querySelector('#v-form');
-    const wallet_btn = document.querySelector('connectWalletBtn');
-    const notify = document.querySelector('.content');
-    const notify_background = document.querySelector('.notify');
-
-    let loader = document.getElementById('loader');
-    const result = document.querySelector('.check-result');
-    const contractAddress = '0xD16a279E2F1aA4C1B0D57fe9Ffab8269e36Ef951';
-    const connected = false;
-    
+const voteButtons = document.querySelector('btn');
+const wallet_btn = document.querySelector('connectWalletBtn');
+const notify = document.querySelector('.content');
+const notify_background = document.querySelector('.notify');
+const result = document.querySelector('.check-result');
+const ethers = require('ethers');
+const contractAddress = '0xD16a279E2F1aA4C1B0D57fe9Ffab8269e36Ef951';
+const decentraVoteABI = [
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "voter",
+                    "type": "address"
+                }
+            ],
+            "name": "giveRightToVote",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes32[]",
+                    "name": "proposalNames",
+                    "type": "bytes32[]"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "proposal",
+                    "type": "uint256"
+                }
+            ],
+            "name": "vote",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "authenticator",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "proposals",
+            "outputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "name",
+                    "type": "bytes32"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "voteCount",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "name": "voters",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "vote",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bool",
+                    "name": "anyVotes",
+                    "type": "bool"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "value",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "winningName",
+            "outputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "winningName_",
+                    "type": "bytes32"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "winningProposal",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "winningProposal_",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+];
+const connected = false;
+const decentraVote = new ethers.Contract(contractAddress, decentraVoteABI, signer);
     
     wallet_btn.addEventListener('click', async () => {
         let {truncatedAddr} = await connect_metamask()
@@ -19,10 +145,29 @@ import decentraVoteABI from "../Javascript/decentraVoteABI"
         wallet_btn.textContent = truncatedAddr;
     })
     
-    voters_form.addEventListener('submit', async (e) => {
+    /*voters_form.addEventListener('submit', async (e) => {
         e.preventDefault();
         await vote(voters_form.resources.value)
-    })
+    }) */
+
+    for (let i = 0; i < voteButtons.length; i++) {
+        voteButtons[i].addEventListener('click', async (event) => {
+            try {
+                // Call the vote function on the smart contract
+                const transaction = await decentraVote.vote(proposal);
+                const receipt = transaction.wait(1);
+                
+                // Handle the receipt or handle the UI
+                // This extracts the Proposal value
+                // const proposalIndex = parseInt(event.target.value);
+                console.log('Transaction Receipt:', receipt);
+            } catch (error) {
+                // Handle the error show an error message
+                console.error('Error:', error);
+            }
+        });
+        
+    }
 
     result.addEventListener ('click', async () => {
         const name = await winning()

@@ -121,13 +121,13 @@ button:hover{
     cursor: pointer;
 } 
 
-button.connectWalletBtn{
+#connectWalletBtn{
     background-color: rgb(255, 255, 255);
     color: red;
     border-radius: 1em;
 }
 
-button.connectWalletBtn p {
+#connectWalletBtn p {
     margin: .5em;
     font-family: 'Poppins', sans-serif;
 }

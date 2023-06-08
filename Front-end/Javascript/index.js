@@ -281,7 +281,7 @@ const decentraVoteABI = [
 
 /////// Creating Contract Instance using the Contract Address, ABI, and signer ////////
 // ** This will allow you to interact with the functions defined in your contract
-const contract = new ethers.ethers.Contract(contractAddress, decentraVoteABI, provider.getSigner());
+const contract = new ethers.Contract(contractAddress, decentraVoteABI, provider.getSigner());
 
 
 

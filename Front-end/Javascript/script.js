@@ -1,9 +1,10 @@
+import { ethers } from 'ethers';
 const voteButtons = document.querySelector('btn');
 const wallet_btn = document.querySelector('connectWalletBtn');
 const notify = document.querySelector('.content');
 const notify_background = document.querySelector('.notify');
 const result = document.querySelector('.check-result');
-const ethers = require('ethers');
+const ethers = require ('ethers');
 const contractAddress = '0xD16a279E2F1aA4C1B0D57fe9Ffab8269e36Ef951';
 const decentraVoteABI = [
         {
@@ -137,7 +138,7 @@ const decentraVoteABI = [
         }
 ];
 const connected = false;
-const decentraVote = new ethers.Contract(contractAddress, decentraVoteABI, signer);
+const decentraVote = new ethers.Contract(contractAddress, decentraVoteABI, sig);
     
     wallet_btn.addEventListener('click', async () => {
         let {truncatedAddr} = await connect_metamask()
